@@ -11,27 +11,27 @@
 第一次启动：
 
 ```bash
-npm run init
-npm run dev
+yarn run init
+yarn run dev
 ```
 
 以后再次启动本工程只需：
 
 ```bash
-npm run dev
+yarn run dev
 ```
 
 ## 命令说明（核心维护者发包使用）
 
 ```bash
 // 发布所有子包的最后一位版本号如 0.0.1 -> 0.0.2,
-npm run release:patch
+yarn run release:patch
 
 // 发布所有子包的中间一位版本号如 0.0.1 -> 0.1.0,
-npm run release:minor
+yarn run release:minor
 
 // 发布所有子包的第一位版本号如 0.0.1 -> 1.0.0,
-npm run release:major
+yarn run release:major
 ```
 
 打 tag
@@ -40,6 +40,8 @@ npm run release:major
 git tag // 先看下是否生成最新的 tag
 git push origin --tags
 ```
+
+然后 github 更新 [release](https://github.com/hellof2e/quark-design/releases/new)
 
 ## 提交 commit
 

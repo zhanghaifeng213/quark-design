@@ -39,9 +39,9 @@
 
 ## Contact us
 
-~~微信(1)群已满员~~
+~Wechat(微信交流/沟通群)，欢迎提意见或建议，有机会获取周边礼品 🎁 ～, 若群已满请加右边小助手微信拉你入群~
 
-可扫码加入微信(2)群，或添加下面管理员拉你入群谢谢
+~微信(1)群已满~ 可扫码加入微信(2)群，或添加下面管理员拉你入群谢谢
 
 <div style="display:flex;">
   <img src="https://m.hellobike.com/resource/helloyun/15697/N-Exc_qun.png?x-oss-process=image/quality,q_80" width='180'/>
@@ -78,13 +78,15 @@ Therefore, we developed this UI framework to isolate it from the technology fram
 | TDesign Mobile    | -       | √                | Gulp           | √          | 2021             | React only                               |
 | Antd Mobile       | -       | √                | Gulp           | √          | 2016             | React only                               |
 
+*The CDN volume comparison above includes the runtime, js, and css required for various component libraries to function properly.*
+
 ## 🔗 CDN
 
 The easiest way to use quark is to directly introduce the CDN link in the HTML file, and then you can use it anywhere in the world. Since quark has achieved CSS-IN-JS, you only need to load the link below.
 
 ```
 <!-- Introduce CDN files, only 80kb -->
-<script src="https://fastly.jsdelivr.net/npm/quarkd@1.0.11/umd/index.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/quarkd@latest/umd/index.js"></script>
 ```
 
 ## 📦 Install
@@ -93,7 +95,7 @@ Using `npm` to install:
 
 ```bash
 # install for Vue/React/Angular/No framework project
-npm i quarkd
+npm i quarkd --save
 ```
 
 **React usage notes**: Since the components provided by `quarkd` are all native custom elements (analogous to div), events dispatched in the component need to be received by `addEventLisener`, such as the custom close event close inside the `dialog` component. The `Vue` technology stack can directly use `@xx` to receive natively dispatched events, so there is no need to use `addEventLisener` to receive.
@@ -150,20 +152,14 @@ No framework project
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <!-- cdn -->
+  <!-- 1. CDN, import all components -->
   <script src="https://fastly.jsdelivr.net/npm/quarkd@1.0.11/umd/index.js"></script>
   <body>
-    <quark-button loading="false" id="btn">Button</quark-button>
+  
+    <!-- 2. use it -->
+    <quark-button loading="true">Button</quark-button>
+  
   </body>
-  <script>
-    window.addEventListener(function () {
-      const el = document.getElementById("btn");
-      el.loading = true;
-      setTimeout(() => {
-        el.loading = true;
-      }, 2000);
-    });
-  </script>
 </html>
 ```
 

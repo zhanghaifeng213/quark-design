@@ -79,20 +79,22 @@
 | TDesign Mobile | -       | Gulp           | √          | 2021     | React                              |
 | Antd Mobile    | -       | Gulp           | √          | 2016     | React                              |
 
+*上面CDN体积对比包含各类组件库能正常运行展示所需的运行时、js、css*
+
 ## 🔗 CDN 使用
 
 使用 quark 最简单的方式是直接在 HTML 文件中引入 CDN 链接，之后你可以全局中任意使用，由于 quark 做到了 CSS-IN-JS，因此您只需加载下面链接即可。
 
 ```
 <!-- 引入CDN文件，只有 80kb -->
-<script src="https://fastly.jsdelivr.net/npm/quarkd@1.0.11/umd/index.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/quarkd@latest/umd/index.js"></script>
 ```
 
 ## 📦 通过 npm 安装
 
 ```bash
 # Vue / React / Preact / Angular / JQ / 其他技术栈或无框架项目
-npm i quarkd
+npm i quarkd --save
 ```
 
 **React 使用须知**：由于 `quarkd` 提供的组件均为原生自定义元素（类比 div），因此组件内派发（dispatch）的事件需要使用 `addEventLisener` 接收，比如 `dialog` 组件内部的自定义关闭事件 `close`。而 Vue 技术栈则可以直接使用 `@xx` 即可接收原生派发的事件，因此不需要使用 `addEventLisener` 接收。
@@ -101,7 +103,7 @@ npm i quarkd
 
 ```bash
 # React 推荐使用
-npm i @quarkd/quark-react
+npm i @quarkd/quark-react --save
 ```
 
 ## 🔨 示例
@@ -144,20 +146,14 @@ import "quarkd/lib/button"
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <!-- cdn -->
+  <!-- 1. CDN, import all components -->
   <script src="https://fastly.jsdelivr.net/npm/quarkd@1.0.11/umd/index.js"></script>
   <body>
-    <quark-button loading="false" id="btn">Button</quark-button>
+  
+    <!-- 2. use it -->
+    <quark-button loading="true">Button</quark-button>
+  
   </body>
-  <script>
-    window.addEventListener(function () {
-      const el = document.getElementById("btn");
-      el.loading = true;
-      setTimeout(() => {
-        el.loading = true;
-      }, 2000);
-    });
-  </script>
 </html>
 ```
 
